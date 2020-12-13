@@ -8,18 +8,24 @@
         <version>2.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>dk.si</groupId>
+    <groupId>get.dk.si</groupId>
     <artifactId>routingslip</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.5</version>
     <name>routingslip</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>11</java.version>
-
     </properties>
-
+    <repositories>
+        <repository>
+            <id>lsd-repository</id>
+            <name>Internet mirror for rasmuslynge.com</name>
+            <url>http://rasmuslynge.com:8081/repository/internal/</url>
+        </repository>
+    </repositories>
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
@@ -30,13 +36,5 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

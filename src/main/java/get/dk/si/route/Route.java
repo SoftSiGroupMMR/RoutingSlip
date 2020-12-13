@@ -1,14 +1,20 @@
-package route;
+package get.dk.si.route;
 
 import java.io.Serializable;
 
 public class Route implements Serializable {
 
     private boolean visited;
-    private String topic;
+    private String queue;
     private String status;
     private int priority;
-    private String exhangeQue;
+
+    public Route(boolean visited, String queue, String status, int priority) {
+        this.visited = visited;
+        this.queue = queue;
+        this.status = status;
+        this.priority = priority;
+    }
 
     public Route() {
     }
@@ -21,12 +27,12 @@ public class Route implements Serializable {
         this.visited = visited;
     }
 
-    public String getTopic() {
-        return topic;
+    public String getQueue() {
+        return queue;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setQueue(String queue) {
+        this.queue = queue;
     }
 
     public String getStatus() {

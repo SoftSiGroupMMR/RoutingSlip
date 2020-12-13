@@ -1,4 +1,4 @@
-package route;
+package get.dk.si.route;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,9 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.concurrent.TimeoutException;
 
-public class Util {
+public class Util implements Serializable {
 
     protected Logger logger = LoggerFactory.getLogger(Util.class.getName());
     private ObjectMapper objectMapper = new ObjectMapper();
@@ -35,9 +36,9 @@ public class Util {
         factory.setPassword("mmmrj1");
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
-            channel.queueDeclare(route.getTopic(), false, false, false, null);
-            channel.basicPublish("", route.getTopic(), null, root.getBytes("UTF-8"));
+            channel.queueDeclare(route.getQueue(), false, false, false, null);
+            channel.basicPublish("", route.getQueue(), null, root.getBytes("UTF-8"));
         }
-        logger.info("Sending to topic: "+ route.getTopic());
+        logger.info("Sending to topic: "+ route.getQueue());
     }
 }
